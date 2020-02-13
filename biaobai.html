@@ -138,61 +138,35 @@ opacity: 1; /*结尾状态 透明度为1*/
     background: url('./aa.svg') repeat left center;
     text-align:center;
     opacity: 0;
-    -webkit-transition: all .5s ease-in;
+    /* -webkit-transition: all .5s ease-in;
     -moz-transition: all .5s ease-in;
-    transition: all .5s ease-in;
+    transition: all .5s ease-in; */
 }
-
 </style>
 <script>
     window.onload=function(){
-        var strName = '陈子欣';
-        var strQues = '你同意嫁给我吗？'
-        // var i = 0;
-        // var j = 0;
-        // function question(){
-        //     var ques = document.getElementById('ques')
-		// 	if(j<=strQues.length){
-		// 		ques.innerHTML = strQues.substring(0,j++);
-		// 		setTimeout(typing,300)
-		// 	}else{
-		// 		ques.innerHTML = strQues;
-        //         danchu();
-		// 	}
-        // }
-        // function typing(){
-		// 	var name = document.getElementById('name')
-		// 	if(i<=strName.length){
-		// 		name.innerHTML = strName.substring(0,i++);
-		// 		setTimeout(typing,300)
-		// 	}else{
-		// 		name.innerHTML = strName;
-        //         question();
-		// 	}
-		// }
-        var i = 0;
         function danchu(){
             setTimeout(function(){
                 var title = document.getElementById('title')
                 var pass = document.getElementById('pass')
                 title.style.opacity = 0;
                 pass.style.opacity = 1;
+                dianji()
             }, 1000*7)
         }
         danchu();
-        // var n = 10;
-        // var div = document.getElementById('pass');
-        // var span;
-        // for(var i=0;i<n;i++){
-        //     span = document.createElement('span');
-        //     span.style.display = "inline-block";
-        //     span.style.width = "300px";
-        //     span.style.height = "250px";
-        //     span.style.margin = "20px";
-        //     span.style.background = "#ff0";
-        //     div.appendChild(span);
-        // }
-		// typing();
+        function dianji(){
+          var pass = document.getElementById('pass')
+          pass.ontouchstart = function(){
+            pass.style.backgroundImage = 'url(./bbb.svg)'
+          }
+          pass.ontouchmove = function(){
+            pass.style.backgroundImage = 'url(./bbb.svg)'
+          }
+          pass.ontouchend = function(){
+            pass.style.backgroundImage = 'url(./aa.svg)'
+          }
+        }
     };
 </script>
 </head>
